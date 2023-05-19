@@ -1,0 +1,35 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({IntroText = "Loading" ,Name = "Cool Script", HidePremium = false, SaveConfig = true, ConfigFolder = "DoorsSex"})
+
+--Tabs
+
+local Farm = Window:MakeTab({
+	Name = "Farm",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--Values
+
+local farm = true
+
+--Functions
+
+local function autoFarm()
+    while farm == true do
+        workspace.Events.AddClick:FireServer()
+        task.wait(0.0001)
+     end
+end
+
+--Toggles
+Farm:AddToggle({
+	Name = "Auto Click",
+	Default = false,
+	Callback = function(Value)
+		farm = Value
+	end    
+})
+
+
+OrionLib:Init()
